@@ -9,6 +9,8 @@ port = int(textport)
 server_address = ('localhost', port)
 s.bind(server_address)
 
+
+
 while True:
 
     print ("Waiting to receive on port %d : press Ctrl-C or Ctrl-Break to stop " % port)
@@ -16,6 +18,9 @@ while True:
     buf, address = s.recvfrom(port)
     if not len(buf):
         break
-    print ("Received %s bytes from %s %s: " % (len(buf), address, buf ))
+
+    data = "Ack" + str(buf)
+    print ("Ack: %s " % (buf))
+    s.sendto(data.encode('utf-8'), address)
 
 s.shutdown(1)
