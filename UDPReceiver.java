@@ -1,4 +1,3 @@
-
 import java.net.*;
 
 public class UDPReceiver {
@@ -27,8 +26,9 @@ public class UDPReceiver {
 		        DatagramPacket packet = new DatagramPacket( new byte[PACKETSIZE], PACKETSIZE ) ;
 	            socket.receive( packet ) ;
 
-	            System.out.println( packet.getAddress() + " " + packet.getPort() + ": " + new String(packet.getData()).trim() ) ;
-	        }  
+	            //System.out.println( packet.getAddress() + " " + packet.getPort() + ": " + new String(packet.getData()).trim() ) ;
+	            System.out.println( "ACK:" + new String(packet.getData()).trim());
+	         }  
 	     }
 	     catch( Exception e )
 	     {
@@ -36,4 +36,3 @@ public class UDPReceiver {
 	     }
   }
 }
-
